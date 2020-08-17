@@ -14,16 +14,23 @@ function woodCalculator(chair,table,boxBed){
 }
 
 
-function brickCalculator(foot){
-    var level = foot * 1000;
-    if (level>=1 && level <=10) {
-        foot * 15
+function brickCalculator(building){
+    var level = 0;
+    if(building <= 10){
+        level = building *15000;
+    }else if(building <=20){
+    var firstStep = 10 * 15000;
+    var remaining = building - 10;
+    var secondStep = remaining * 12000;
+    level = firstStep + secondStep;
+    }else {
+       var  firstStep = 10 * 15000;
+       var secondStep = 10 * 12000;
+       var remaining = building - 20;
+       var thirdStep = remaining * 10000;
+       level = firstStep + secondStep + thirdStep;
     }
-    else if (level>=10 && level <=20) {
-        foot * 12
-    }
-    else
-        foot * 10
+    return level;
 }
 
 function tinyFriend(name){
